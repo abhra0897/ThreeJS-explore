@@ -5,7 +5,7 @@ import { PointerLockControls } from './PointerLockControls.js';
 var scene = new THREE.Scene();
 //fog creation
 {
-	const color = 0xF0F0F0
+	const color = 0x101010
 	const density = 0.007;
 	scene.fog = new THREE.FogExp2(color, density);
 }
