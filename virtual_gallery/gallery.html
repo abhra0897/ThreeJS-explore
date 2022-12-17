@@ -4,11 +4,125 @@
 <head>
     <title>Virtual Gallery</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <style></style>
+    <style>
+        html * {
+            font-size: 1em;
+            color: #fff;
+            font-family: Arial !important;
+        }
+        body {
+            overflow: hidden;
+            margin: 0;
+
+        }
+        .canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .canvas-container-css {
+            pointer-events: none;
+        }
+        .ui-container {
+            display:flex;
+            position: absolute;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        .ui {
+            flex: 1;
+            color: white;
+            background-color: #0000008f;
+            padding: .5em;
+            border-radius: .5em;
+            border: 2px solid grey;
+        }
+
+        .credit-container {
+            width: 100px;
+            height: 120px;
+            box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+            border: 1px solid rgba(127,255,255,0.25);
+            font-family: Helvetica, sans-serif;
+            text-align: center;
+            line-height: normal;
+            cursor: default;
+        }
+
+        .popup{
+            background-color: #ffffffc0;
+            width: 420px;
+            padding: 30px 40px;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            font-family: "Poppins",sans-serif;
+            display: block;
+            text-align: center;
+        }
+        .popup button{
+            display: block;
+            margin:  0 0 20px auto;
+            background-color: transparent;
+            font-size: 30px;
+            color: #ffffff;
+            background: #03549a;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .popup h2{
+            font-size: 30px;
+            color: #03549a;
+            margin-top: -20px;
+        }
+        .popup p{
+            color: black;
+            font-size: 14px;
+            text-align: justify;
+            margin: 20px 0;
+            line-height: 25px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>[Start: Left click] [Move: W/A/S/D] [End: Esc/Right click]</p>
+    <div class="canvas-parent">
+        <div class="canvas-container"></div>
+        <div class="canvas-container canvas-container-css"></div>
+    </div>
+    <div class="ui-container">
+        <div style="" class="ui">
+            Start: Press <b>F</b> or <b>Enter</b>
+        </div>
+        <div style="" class="ui">
+            End: Press <b>Esc</b> or <b>Right click</b>
+        </div>
+
+        <div style="" class="ui">
+            Move Camera: <b>W / A / S / D / Mouse</b>
+        </div>
+        <div class="ui">
+            Source code: <a href="https://github.com/abhra0897/ThreeJS-explore/tree/master/virtual_gallery"> Go to github </a>
+        </div>
+    </div>
+
+    <div class="popup">
+        <button id="close">&times;</button>
+        <h2>Welcome to the Virtual Gallery</h2>
+        <p style="color: black;">
+            In this gallery we can look at arts and photographs by some tallented individuals. Walk around in 3D using <b style="color: #03549a;">W/A/S/D</b> keys and your <b style="color: #03549a;">mouse</b>. Enjoy!
+            <br/><br/>
+            <i style="color: green;">Note: The scene may take some time to load. Please wait patiently.</i>
+        </p>
+    </div>
+
     <script async src="https://unpkg.com/es-module-shims@1.6.2/dist/es-module-shims.js"></script>
     <script type="importmap">
     {
